@@ -22,16 +22,31 @@ By nesting a function, the nestedFunction() creates a closure. This allows the f
 /* Task 2: Counter */
 
 /* Create a function called `summation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. */
-function summation(num) {
-  let counter = [];
-  for (let i = 0; i <= num; i++) {
-    counter.push(i);
-    }
 
-  let final = counter.reduce(function(accum, item) {
-    return accum + item;
-  }, 0)
-  return final;
-} 
+// w/o closure 
+// function summation(num) {
+//   let counter = [];
+//   for (let i = 0; i <= num; i++) {
+//     counter.push(i);
+//     }
+
+//   let final = counter.reduce(function(accum, item) {
+//     return accum + item;
+//   }, 0)
+//   return final;
+// } 
+
+// console.log('task 2', summation(4));
+
+// w closure
+function summation(num) {
+  let counter = 0;
+  function sum(num) {
+    for (let i = 0; i <= num; i++) {
+      counter += i;
+    } return counter;
+  } sum(num);
+  return counter;
+}
 
 console.log('task 2', summation(4));
